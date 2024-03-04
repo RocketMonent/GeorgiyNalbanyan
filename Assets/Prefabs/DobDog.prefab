@@ -3169,6 +3169,8 @@ GameObject:
   - component: {fileID: 1389213440938165227}
   - component: {fileID: 6560743873508311035}
   - component: {fileID: -4373129708277004069}
+  - component: {fileID: 6570024518002859338}
+  - component: {fileID: -4470170541175468793}
   m_Layer: 0
   m_Name: DobDog
   m_TagString: Untagged
@@ -3262,6 +3264,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!65 &6570024518002859338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748861276794413232}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.148569, y: 0.27061749, z: 0.34732646}
+  m_Center: {x: 0.0014529512, y: 0.10606559, z: 0.032298815}
+--- !u!114 &-4470170541175468793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748861276794413232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546af548c6389429aa3c42d0277f9d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4786169044895152589
 GameObject:
   m_ObjectHideFlags: 0
