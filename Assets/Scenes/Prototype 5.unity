@@ -814,6 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8710f901f99d64e05b24e9ca2143b28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 3
 --- !u!114 &1090261391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8710f901f99d64e05b24e9ca2143b28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 1
 --- !u!114 &1195100230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.1849277, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.16767979, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1519,6 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8710f901f99d64e05b24e9ca2143b28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 2
 --- !u!114 &1622513968
 MonoBehaviour:
   m_ObjectHideFlags: 0
