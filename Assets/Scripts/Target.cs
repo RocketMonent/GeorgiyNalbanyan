@@ -49,8 +49,8 @@ public class Target : MonoBehaviour
         return new Vector3(Random.Range(-xRange, xRange), ySpawnPosition);
     }
 
-    private void OnMouseDown()
-    {
+    public void DestroyTarget()
+    {]
         Destroy(gameObject);
         Instantiate(explosion, transform.position, Quaternion.identity);
         gameManager.UpdateScore(pointValue);

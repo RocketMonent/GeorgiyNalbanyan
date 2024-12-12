@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int health = 3;
     private float spawnRate = 2f;
 
-    private bool isGameActive;
+    public bool isGameActive;
 
     public void  StartGame(int difficulty)
     {
