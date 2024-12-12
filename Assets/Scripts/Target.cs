@@ -50,7 +50,7 @@ public class Target : MonoBehaviour
     }
 
     public void DestroyTarget()
-    {]
+    {
         Destroy(gameObject);
         Instantiate(explosion, transform.position, Quaternion.identity);
         gameManager.UpdateScore(pointValue);
