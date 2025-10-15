@@ -1,4 +1,5 @@
 using System;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -7,6 +8,11 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
+
+    private bool isWalking;
+
+    public bool IsWalking => isWalking;
+    
     private void Update()
     {
         Vector2 inputVector2 = new Vector2(0, 0);
@@ -34,6 +40,8 @@ public class Player : MonoBehaviour
         inputVector2 = inputVector2.normalized;
 
         Vector3 moveDirection = new Vector3(inputVector2.x, 0, inputVector2.y);
+
+        isWalking = moveDirection != Vector3.zero;
 
         transform.position += moveDirection * Time.deltaTime * moveSpeed;
 
