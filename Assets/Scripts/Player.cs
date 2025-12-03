@@ -9,6 +9,9 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+    public event Action<ClearCounter> OnSelectedCounterChanged;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private GameInput gameInput;
@@ -19,6 +22,11 @@ public class Player : MonoBehaviour
     private ClearCounter selectedCounter;
 
     public bool IsWalking => isWalking;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -56,17 +64,17 @@ public class Player : MonoBehaviour
             {
                 if (clearCounter != selectedCounter)
                 {
-                    selectedCounter = clearCounter;
+                    SetSelectedCounter(clearCounter);
                 }
             }
             else
             {
-                selectedCounter = null;
+                SetSelectedCounter(null);
             }
         }
         else
         {
-            selectedCounter = null;
+            SetSelectedCounter(null);
         }
     }
 
@@ -108,5 +116,11 @@ public class Player : MonoBehaviour
         }
 
         transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime * rotationSpeed);
+    }
+
+    private void SetSelectedCounter(ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+        OnSelectedCounterChanged?.Invoke(selectedCounter);
     }
 }
