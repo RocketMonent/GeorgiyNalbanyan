@@ -1,15 +1,13 @@
 using System;
 using UnityEngine;
 
-public class ClearCounter : MonoBehaviour
+public class ClearCounter : MonoBehaviour, IKitchenObjectParent
 {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
     [SerializeField] private Transform counterTopPoint;
-    [SerializeField] private ClearCounter secondClearCounter;
-    [SerializeField] private bool testing;
-    
+
     private KitchenObject kitchenObject;
-    public void Interact()
+    public void Interact(Player player)
     {
         if (kitchenObject == null)
         {
@@ -17,22 +15,11 @@ public class ClearCounter : MonoBehaviour
             kitchenObjectTransform.localPosition = Vector3.zero;
             
             kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-            kitchenObject.SetClearCounter(this);
+            kitchenObject.SetKitchenObjectParent(this);
         }
         else
         {
-            Debug.Log(kitchenObject.GetClearCounter());
-        }
-    }
-
-    private void Update()
-    {
-        if (testing == true && Input.GetKeyDown(KeyCode.T))
-        {
-            if (kitchenObject != null)
-            {
-                kitchenObject.SetClearCounter(secondClearCounter);
-            }
+            kitchenObject.SetKitchenObjectParent(player);
         }
     }
 
@@ -58,13 +45,6 @@ public class ClearCounter : MonoBehaviour
 
     public bool HasKitchenObject()
     {
-        if (kitchenObject != null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return kitchenObject != null;
     }
 }
