@@ -1,7 +1,9 @@
 using System;
 using System.Numerics;
+using Microsoft.Win32.SafeHandles;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -34,6 +36,15 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private void Start()
     {
         gameInput.OnInteractAction += GameInputOnInteractAction;
+        gameInput.OnInteractAlternateAction += GameInputOnOnInteractAlternateAction;
+    }
+
+    private void GameInputOnOnInteractAlternateAction()
+    {
+        if (selectedCounter != null)
+        {
+            selectedCounter.InteractAlternate(this);
+        }
     }
 
     private void GameInputOnInteractAction()
@@ -97,7 +108,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (canMove == false)
         {
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0, 0).normalized;
-            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigth, playerRadius, moveDirectionX, moveDistance);
+            canMove = moveDirection.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigth, playerRadius, moveDirectionX, moveDistance);
             if (canMove == true)
             {
                 moveDirection = moveDirectionX;
@@ -105,7 +116,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             else
             {
                 Vector3 moveDirectionZ = new Vector3(0, 0, moveDirection.z).normalized;
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigth, playerRadius, moveDirectionZ, moveDistance);
+                canMove = moveDirection.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHigth, playerRadius, moveDirectionZ, moveDistance);
                 if (canMove == true)
                 {
                     moveDirection = moveDirectionZ;

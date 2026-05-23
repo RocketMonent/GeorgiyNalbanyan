@@ -11,6 +11,11 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     {
         Debug.LogError("You cannot interact with BaseCounter");
     }
+
+    public virtual void InteractAlternate(Player player)
+    {
+        Debug.LogError("You cannot interact with BaseCounter");
+    }
     
     public Transform GetKitchenObjectFollowTransform()
     {
